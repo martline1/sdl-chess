@@ -19,7 +19,7 @@ class Piece
 
 		bool isBlack = false;
 
-		vector<vector<Piece*>>* board;
+		const vector<vector<Piece*>>* board;
 
-		Piece(const Type& pieceType);
+		Piece(const Piece::Type& pieceType, const vector<vector<Piece*>>* board, bool isBlack);
 };

@@ -15,7 +15,7 @@ int main(int argc, char** argv) {
 	SDL_Texture* pieces = game.loadTexture("resources/figures.png");
 
 	vector<vector<Piece*>> board = {
-		{ Piece() },
+		{ new Piece(Piece::ROOK, board, true) },
 	};
 
 	/*const int piecesWidth  = 340;
@@ -54,9 +54,14 @@ int main(int argc, char** argv) {
 
 		SDL_RenderClear(game.renderer);
 
+		// Render the board
 		SDL_RenderCopy(game.renderer, board, NULL, NULL);
 
-		SDL_RenderCopy(game.renderer, pieces, &knightSource, &knightDestination);
+		for (vector<Piece*> row : board) {
+			for (Piece* )
+		}
+
+		//SDL_RenderCopy(game.renderer, pieces, &knightSource, &knightDestination);
 
 		SDL_RenderPresent(game.renderer);
 	}
