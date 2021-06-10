@@ -2,6 +2,7 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <vector>
+#include <cstdlib>
 
 #include "include/Game.h"
 #include "include/Piece.h"
@@ -11,57 +12,60 @@ using namespace std;
 int main(int argc, char** argv) {
 	Game game("Chess", 600, 600);
 
-	SDL_Texture* board  = game.loadTexture("resources/board0.png");
-	SDL_Texture* pieces = game.loadTexture("resources/figures.png");
+	SDL_Texture* boardTexture  = game.loadTexture("resources/board0.png");
+	SDL_Texture* piecesTexture = game.loadTexture("resources/figures.png");
 
-	vector<vector<Piece*>> board = {
-		{ new Piece(Piece::ROOK, board, true) },
+	vector<vector<int>> board = {
+		{ -Piece::ROOK, -Piece::KNIGHT, -Piece::BISHOP, -Piece::QUEEN, -Piece::KING, -Piece::BISHOP, -Piece::KNIGHT, -Piece::ROOK },
+		{ -Piece::PAWN, -Piece::PAWN, -Piece::PAWN, -Piece::PAWN, -Piece::PAWN, -Piece::PAWN, -Piece::PAWN, -Piece::PAWN, },
+		{ Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, },
+		{ Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, },
+		{ Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, },
+		{ Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, Piece::EMPTY, },
+		{ Piece::PAWN, Piece::PAWN, Piece::PAWN, Piece::PAWN, Piece::PAWN, Piece::PAWN, Piece::PAWN, Piece::PAWN, },
+		{ Piece::ROOK, Piece::KNIGHT, Piece::BISHOP, Piece::QUEEN, Piece::KING, Piece::BISHOP, Piece::KNIGHT, Piece::ROOK },
 	};
 
-	/*const int piecesWidth  = 340;
-	const int piecesHeight = 120;
+	vector<Piece> pieces;
 
-	SDL_Rect knightSource;
-	knightSource.x = (piecesWidth / 6) * 1;
-	knightSource.y = (piecesHeight / 2) * 0;
-	knightSource.w = piecesWidth / 6;
-	knightSource.h = piecesHeight / 2;
+	for (int y = 0; y < 8; y++) {
+		for (int x = 0; x < 8; x++) {
+			int pieceType = board.at(y).at(x);
 
-	SDL_Rect knightDestination;
-	knightDestination.x = (game.width / 8) * 0;
-	knightDestination.y = (game.width / 8) * 0;
-	knightDestination.w = game.width / 8;
-	knightDestination.h = game.height / 8;*/
+			// If there's a non empty
+			if (pieceType != Piece::EMPTY) {
+				bool isBlack = pieceType < 0;
+				Piece::Type convertedPieceType = static_cast<Piece::Type>(abs(pieceType));
+
+				pieces.push_back(Piece(&game, piecesTexture, convertedPieceType, &board, isBlack, x, y));
+			}
+		}
+	}
 
 	SDL_Event event;
 	while (game.running) {
+		// Clear The Screen
+		SDL_SetRenderDrawColor(game.renderer, 0, 0, 0, 255);
+		SDL_RenderClear(game.renderer);
+
+		// Handle Events
 		while (SDL_PollEvent(&event)) {
-			switch (event.type)
-			{
-				case SDL_QUIT:
-					game.running = false;
-					break;
-				case SDL_MOUSEBUTTONDOWN:
-					cout << "Pressed!" << endl;
-					break;
-				case SDL_MOUSEBUTTONUP:
-					cout << "Released!" << endl;
-					break;
-				default:
-					break;
+			if (event.type == SDL_QUIT) {
+				game.running = false;
+			}
+
+			for (Piece& piece : pieces) {
+				piece.handleEvent(&event);
 			}
 		}
 
-		SDL_RenderClear(game.renderer);
-
 		// Render the board
-		SDL_RenderCopy(game.renderer, board, NULL, NULL);
+		SDL_RenderCopy(game.renderer, boardTexture, NULL, NULL);
 
-		for (vector<Piece*> row : board) {
-			for (Piece* )
+		// Render the pieces
+		for (Piece& piece : pieces) {
+			piece.render();
 		}
-
-		//SDL_RenderCopy(game.renderer, pieces, &knightSource, &knightDestination);
 
 		SDL_RenderPresent(game.renderer);
 	}
