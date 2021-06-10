@@ -88,12 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\include;C:\Users\Desarrollo\Desktop\htdocs_ws\ChessSDLZap326\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64;C:\Users\Desarrollo\Desktop\htdocs_ws\ChessSDLZap326\SDL2-2.0.14\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -105,14 +105,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\include;C:\Users\Desarrollo\Desktop\htdocs_ws\ChessSDLZap326\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories);C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64;C:\Users\Desarrollo\Desktop\htdocs_ws\ChessSDLZap326\SDL2-2.0.14\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -122,12 +122,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\include;C:\Users\Desarrollo\Desktop\htdocs_ws\ChessSDLZap326\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64;%(AdditionalLibraryDirectories);C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64;%(AdditionalLibraryDirectories);C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64;C:\Users\Desarrollo\Desktop\htdocs_ws\ChessSDLZap326\SDL2-2.0.14\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -139,14 +139,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\include;C:\Users\Desarrollo\Desktop\htdocs_ws\ChessSDLZap326\SDL2-2.0.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64;%(AdditionalLibraryDirectories);C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64;%(AdditionalLibraryDirectories);C:\Users\yaela\Desktop\desk_ws\htdocs_ws\CPP\sdl-chess\SDL2-2.0.14\lib\x64;C:\Users\Desarrollo\Desktop\htdocs_ws\ChessSDLZap326\SDL2-2.0.14\lib\x64</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>

@@ -31,7 +31,8 @@ class Piece
 		void render();
 
 	private:
-		bool movingPiece = false;
+		bool movingPiece        = false;
+		bool requestNewPosition = false;
 
 		int positionX;
 		int positionY;

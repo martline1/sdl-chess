@@ -1,9 +1,12 @@
 #include <SDL.h>
+#include <math.h>
+#include <string>
 #include <iostream>
 
 #include "../include/Piece.h"
 
 using std::cout;
+using std::string;
 using std::endl;
 
 Piece::Piece(Game* _game, SDL_Texture* _piecesTexture, const Piece::Type& pieceType, const vector<vector<int>>* board, bool isBlack, int _positionX, int _positionY)
@@ -21,21 +24,35 @@ Piece::Piece(Game* _game, SDL_Texture* _piecesTexture, const Piece::Type& pieceT
 void Piece::handleEvent(SDL_Event* evnt) {
 	switch (evnt->type)
 	{
-		case SDL_MOUSEBUTTONDOWN:
-			movingPiece = true;
+		case SDL_MOUSEBUTTONDOWN: {
+			int mouseX, mouseY;
+
+			SDL_GetMouseState(&mouseX, &mouseY);
+
+			bool intersectX = mouseX > squareSize * positionX && mouseX < squareSize * (positionX + 1);
+			bool intersectY = mouseY > squareSize * positionY && mouseY < squareSize * (positionY + 1);
+
+			// If the mouse is pressed over this piece, then we're moving the piece
+			movingPiece = intersectX && intersectY;
 			break;
-		case SDL_MOUSEBUTTONUP:
-			movingPiece = false;
+		}
+		case SDL_MOUSEBUTTONUP: {
+			if (movingPiece) {
+				requestNewPosition = true;
+			}
+
 			break;
+		}
 		default:
 			break;
 	}
 }
 
 void Piece::render() {
-	// Don't render if is an empty piece
+	// Don't render if it's an empty piece
 	if (type == Piece::Type::EMPTY) {
-		movingPiece = false;
+		movingPiece        = false;
+		requestNewPosition = false;
 		return;
 	}
 
@@ -62,16 +79,28 @@ void Piece::render() {
 
 		SDL_GetMouseState(&mouseX, &mouseY);
 
-		cout << "x: " << mouseX << ", y: " << mouseY << endl;
+		int newPositionX = std::ceil(mouseX / squareSize), newPositionY = std::ceil(mouseY / squareSize);
 
 		SDL_Rect destinationMouse;
-		destination.x = squareSize * mouseX;
-		destination.y = squareSize * mouseY;
-		destination.w = squareSize;
-		destination.h = squareSize;
+		destinationMouse.x = squareSize * newPositionX;
+		destinationMouse.y = squareSize * newPositionY;
+		destinationMouse.w = squareSize;
+		destinationMouse.h = squareSize;
 
 		SDL_RenderCopy(game->renderer, piecesTexture, &source, &destinationMouse);
 
 		SDL_SetTextureAlphaMod(piecesTexture, 255);
+
+		if (requestNewPosition) {
+			positionX = newPositionX;
+			positionY = newPositionY;
+
+			movingPiece        = false;
+			requestNewPosition = false;
+		}
+	}
+	else {
+		movingPiece        = false;
+		requestNewPosition = false;
 	}
 }
